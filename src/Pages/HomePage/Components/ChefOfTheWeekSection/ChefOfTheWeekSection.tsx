@@ -1,7 +1,8 @@
 import React from 'react'
+import Slider from 'react-slick'
 import ChefCard from '../../../../Compenents/ChefCard/ChefCard'
 import RestaurantCardv2 from '../../../../Compenents/RestaurantCard/RestaurantCardv2'
-import { RestaurantsArray } from '../../../../Constants/Variables'
+import { RestaurantsArray, settings } from '../../../../Constants/Variables'
 import IsDesktop from '../../../../Helper/WindowCheker'
 import { ChefInfoSection, ChefoftheWeekContainer, ChefoftheWeekInfo, ChefOfTheWeekNameRestaurants, ChefOfTheWeekText, RestaurantsContainer, WrapperChefOfTheWeekSection } from './Styles'
 
@@ -26,10 +27,10 @@ export default function ChefOfTheWeekSection() {
         </ChefInfoSection>
         </ChefoftheWeekContainer>
         <ChefOfTheWeekNameRestaurants>Yossi's Restaurants</ChefOfTheWeekNameRestaurants>
-        <RestaurantsContainer>
-          {IsDesktop() && AddRestaurantsDesktop()}
-          {!IsDesktop() && AddRestaurantsMobile()}
-        </RestaurantsContainer>
+        
+          {IsDesktop() &&<RestaurantsContainer> {AddRestaurantsDesktop()}</RestaurantsContainer>}
+          {!IsDesktop() && <Slider {...settings}>{AddRestaurantsMobile()}</Slider>}
+        
     </WrapperChefOfTheWeekSection>
   )
 }

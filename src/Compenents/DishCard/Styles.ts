@@ -5,15 +5,18 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 padding: 0px;
+width:245px;
 height: 390px;
 @media screen and (min-width:600px){
     height: 654px;
+    width: 380px;
 }
 `
 export const DishImg=styled.img`
 height: 152px;
+width:100%;
+
 @media screen and (min-width:600px){
-   width:100%;
    height: 306px;
 }
 `
