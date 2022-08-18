@@ -1,10 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css'
 import RestaurantCard from '../../../../Compenents/RestaurantCard/RestaurantCard';
 import RestaurantCardv2 from '../../../../Compenents/RestaurantCard/RestaurantCardv2';
-import { RestaurantsArray } from '../../../../Constants/Variables'
+import { RestaurantsArray, settings } from '../../../../Constants/Variables'
 import IsDesktop from '../../../../Helper/WindowCheker';
-import {AllBox, AllRestaurantsText, ArrowIcon, PopularRestaurantsSectionContainer, PopularRestaurantsSectionText, WrapperPopularRestaurantsSection } from './Styles';
+import { AllBox, AllRestaurantsText, ArrowIcon, PopularRestaurantsSectionContainer, PopularRestaurantsSectionText, WrapperPopularRestaurantsSection } from './Styles';
 
 export default function PopularRestaurantsSection() {
   const navigate = useNavigate();
@@ -12,12 +14,12 @@ export default function PopularRestaurantsSection() {
     navigate('/Restaurants');
     window.scrollTo(0, 0);
   }
-  function AddRestaurantsDesktop(){
-    return (RestaurantsArray.slice(0,3).map((data, key) =>
+  function AddRestaurantsDesktop() {
+    return (RestaurantsArray.slice(0, 3).map((data, key) =>
       <RestaurantCard key={key} name={data.name} chef={data.chef} urlSmall={data.urlSmall} stars={data.stars} />
     ))
   }
-  function AddRestaurantsMobile(){
+  function AddRestaurantsMobile() {
     return (RestaurantsArray.map((data, key) =>
       <RestaurantCardv2 key={key} name={data.name} chef={data.chef} urlBig={data.urlSmall} stars={data.stars} />
     ))
@@ -25,10 +27,8 @@ export default function PopularRestaurantsSection() {
   return (
     <WrapperPopularRestaurantsSection>
       <PopularRestaurantsSectionText>popular restaurant in epicure:</PopularRestaurantsSectionText>
-      <PopularRestaurantsSectionContainer>
-        {IsDesktop() && AddRestaurantsDesktop()}
-        {!IsDesktop() && AddRestaurantsMobile()}
-      </PopularRestaurantsSectionContainer>
+      {IsDesktop() && <PopularRestaurantsSectionContainer>{AddRestaurantsDesktop()}</PopularRestaurantsSectionContainer>}
+      {!IsDesktop() && <Slider {...settings}>{AddRestaurantsMobile()}</Slider>}
       <AllBox>
         <AllRestaurantsText>All restaurants</AllRestaurantsText>
         <ArrowIcon onClick={GoToRestaurants} src='/Images/Icon/Arrow.svg' alt="arrow" />

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ClickableIcon } from "../../../../Styles/Shared";
 export const WrapperPopularRestaurantsSection=styled.div`
-padding: 0 0 0 5.57%;
+margin: 0 0 0 5.57%;
 @media screen and (min-width:600px){
 padding:0 8.36% 0;
 `
@@ -9,7 +9,7 @@ export const PopularRestaurantsSectionText = styled.div`
 height:24px;
 font-family: 'Helvetica Neue';
 font-style: normal;
-font-weight: 200;
+font-weight: 200;cd react-carousel
 font-size: 18px;
 line-height: 24px;
 letter-spacing: 1.25px;

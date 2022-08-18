@@ -71,6 +71,7 @@ line-height: 30px;
 export const Restaurantv2=styled.div`
 display: flex;
 flex-direction: column;
+width:fit-content;
 align-items: flex-start;
 padding: 0px;
 height: 233.34px;

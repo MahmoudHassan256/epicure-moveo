@@ -117,3 +117,11 @@ export const RestaurantPageArray = [
     },
   
 ]
+export const settings={
+       arrows: false,
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1.3,
+        slidesToScroll: 1,
+      }
