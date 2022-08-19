@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'
 import RestaurantCard from '../../../../Compenents/RestaurantCard/RestaurantCard';
 import RestaurantCardv2 from '../../../../Compenents/RestaurantCard/RestaurantCardv2';
-import { RestaurantsArray, settings } from '../../../../Constants/Variables'
+import { RestaurantArray, settings } from '../../../../Constants/Variables'
 import IsDesktop from '../../../../Helper/WindowCheker';
 import { AllBox, AllRestaurantsText, ArrowIcon, PopularRestaurantsSectionContainer, PopularRestaurantsSectionText, WrapperPopularRestaurantsSection } from './Styles';
 
@@ -15,13 +15,13 @@ export default function PopularRestaurantsSection() {
     window.scrollTo(0, 0);
   }
   function AddRestaurantsDesktop() {
-    return (RestaurantsArray.slice(0, 3).map((data, key) =>
-      <RestaurantCard key={key} name={data.name} chef={data.chef} urlSmall={data.urlSmall} stars={data.stars} />
+    return (RestaurantArray.slice(0, 3).map((data, key) =>
+      <RestaurantCard key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
     ))
   }
   function AddRestaurantsMobile() {
-    return (RestaurantsArray.map((data, key) =>
-      <RestaurantCardv2 key={key} name={data.name} chef={data.chef} urlBig={data.urlSmall} stars={data.stars} />
+    return (RestaurantArray.map((data, key) =>
+      <RestaurantCardv2 key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
     ))
   }
   return (

@@ -5,7 +5,7 @@ export default function RestaurantCardv2(props:RestaurantData) {
 
   return (
     <Restaurantv2>
-    <Restaurantv2Img src={props.urlBig} alt="restaurant" />
+    <Restaurantv2Img src={props.url} alt="restaurant" />
     <RestaurantInfov2>
         <Restaurantv2Name>{props.name}</Restaurantv2Name>
     </RestaurantInfov2>

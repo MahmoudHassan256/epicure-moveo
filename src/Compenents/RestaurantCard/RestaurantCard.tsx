@@ -10,7 +10,7 @@ export default function RestaurantCard(props:RestaurantData) {
 
     return (
         <Restaurant>
-            <RestaurantImg src={props.urlSmall} alt="restaurant" />
+            <RestaurantImg src={props.url} alt="restaurant" />
             <RestaurantInfo>
                 <RestaurantName> {props.name}</RestaurantName>
                 <RestaurantChefName>{props.chef}</RestaurantChefName>

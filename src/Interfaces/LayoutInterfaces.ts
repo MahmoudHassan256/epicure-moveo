@@ -1,7 +1,6 @@
 export interface RestaurantData{
     name?:string
     chef?:string
-    urlSmall?:string
-    urlBig?:string
+    url?:string
     stars?:number
 }

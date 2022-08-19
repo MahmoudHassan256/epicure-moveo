@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Map, RestaurantsPageRestaurantsContainer, RestaurantsPageText, RestaurantsPageWrapper } from './Styles'
-import { RestaurantPageArray } from '../../Constants/Variables'
+import { RestaurantArray } from '../../Constants/Variables'
 import SetWindowSize from '../../Helper/setWindowSize'
 import RestaurantsPageNav from './Components/RestaurantsPageNav/RestaurantsPageNav'
 import IsDesktop from '../../Helper/WindowCheker'
@@ -20,16 +20,16 @@ export default function RestaurantsPage() {
       {IsDesktop() && <FilterNavSection/> }
       {IsDesktop() && ((ActiveTab) === 'Map View' && <Map src='Images/RestaurantsPage/Images/Desktop/Map.jpg' alt='Map'/>)}
       <RestaurantsPageRestaurantsContainer>
-        {ActiveTab === 'All' && RestaurantPageArray.map((data, key) =>
-          <RestaurantCard key={key} name={data.name} chef={data.chef} urlSmall={data.urlBig} stars={data.stars} />
+        {ActiveTab === 'All' && RestaurantArray.map((data, key) =>
+          <RestaurantCard key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
           )}
-        {ActiveTab === 'New' && RestaurantPageArray.filter(ele => ele.new === true).map((data, key) =>
-          <RestaurantCard key={key} name={data.name} chef={data.chef} urlSmall={data.urlBig} stars={data.stars} />)}
-        {ActiveTab === 'Most Popular' && RestaurantPageArray.filter(ele=>ele.ispopular===true).map((data, key) =>
-          <RestaurantCard key={key} name={data.name} chef={data.chef} urlSmall={data.urlBig} stars={data.stars} />
+        {ActiveTab === 'New' && RestaurantArray.filter(ele => ele.new === true).map((data, key) =>
+          <RestaurantCard key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />)}
+        {ActiveTab === 'Most Popular' && RestaurantArray.filter(ele=>ele.ispopular===true).map((data, key) =>
+          <RestaurantCard key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
           )}
-        {ActiveTab === 'Open Now' && RestaurantPageArray.filter(ele => ele.open===true).map((data, key) =>
-          <RestaurantCard key={key} name={data.name} chef={data.chef} urlSmall={data.urlBig} stars={data.stars} />
+        {ActiveTab === 'Open Now' && RestaurantArray.filter(ele => ele.open===true).map((data, key) =>
+          <RestaurantCard key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
           )}
       </RestaurantsPageRestaurantsContainer>
     </RestaurantsPageWrapper>

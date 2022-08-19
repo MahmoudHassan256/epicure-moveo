@@ -2,19 +2,19 @@ import React from 'react'
 import Slider from 'react-slick'
 import ChefCard from '../../../../Compenents/ChefCard/ChefCard'
 import RestaurantCardv2 from '../../../../Compenents/RestaurantCard/RestaurantCardv2'
-import { RestaurantsArray, settings } from '../../../../Constants/Variables'
+import { RestaurantArray, settings } from '../../../../Constants/Variables'
 import IsDesktop from '../../../../Helper/WindowCheker'
 import { ChefInfoSection, ChefoftheWeekContainer, ChefoftheWeekInfo, ChefOfTheWeekNameRestaurants, ChefOfTheWeekText, RestaurantsContainer, WrapperChefOfTheWeekSection } from './Styles'
 
 export default function ChefOfTheWeekSection() {
   function AddRestaurantsDesktop(){
-    return (RestaurantsArray.slice(0,3).map((data, key) =>
-      <RestaurantCardv2 key={key} name={data.name} chef={data.chef} urlBig={data.urlBig} stars={data.stars} />
+    return (RestaurantArray.slice(0,3).map((data, key) =>
+      <RestaurantCardv2 key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
     ))
   }
   function AddRestaurantsMobile(){
-    return (RestaurantsArray.map((data, key) =>
-      <RestaurantCardv2 key={key} name={data.name} chef={data.chef} urlBig={data.urlBig} stars={data.stars} />
+    return (RestaurantArray.map((data, key) =>
+      <RestaurantCardv2 key={key} name={data.name} chef={data.chef} url={data.url} stars={data.stars} />
     ))
   }
   return (
