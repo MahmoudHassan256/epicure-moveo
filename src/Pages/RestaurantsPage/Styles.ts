@@ -1,13 +1,10 @@
 import styled from "styled-components";
 export const RestaurantsPageWrapper = styled.div`
-min-height: 100vh;
-padding: 0 0 0 5.57%;
 display:flex;
 flex-direction:column;
 gap:18px;
 margin-top:62px;
 @media screen and (min-width:600px){
-padding:0 8.36% 0;
 gap:40px;
 `
 export const Map=styled.img`
@@ -23,6 +20,7 @@ line-height: 22px;
 letter-spacing: 1.92px;
 text-transform: uppercase;
 color: #000000;
+margin:0 0 0 5.333%;
 ` 
 export const RestaurantsNav=styled.div`
 display:flex;
@@ -47,10 +45,12 @@ flex-direction:column;
 display:flex;
 align-items: flex-start;
 padding: 0px;
-gap:25px;
+gap:24px;
+padding: 0 5.9% 0 5.57%;
 @media screen and (min-width:600px){
+    padding:0 8.82% 0;
     display: grid;
-    grid-template-columns: auto auto auto;
-    gap:40px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:24px;
 }
 `

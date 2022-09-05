@@ -1,20 +1,16 @@
 import styled from "styled-components";
 export const ChefoftheWeekContainer=styled.div`
-width:94.27%;
+height: 262px;
+background: #000000;
 @media screen and (min-width:600px){
-    width: 31%;
-    height: 96%;
-    padding: 17px 47px 0 47px;
-background:black;
+height: 338px;
 }
 `
-export const ChefoftheWeekImg=styled.div`
-height: 338px;
-background:url('Images/HomePage/Chef.png');
-background-repeat: no-repeat;
-background-position:center;
+export const ChefoftheWeekImg=styled.img`
+height: 262px;
+width:100%;
 @media screen and (min-width:600px){
-    height:357px;
+    height: 338px;
 
 }
 `
@@ -42,9 +38,6 @@ letter-spacing: 2.67px;
 color: #000000;
 background: rgba(255, 255, 255, 0.8);
 @media screen and (min-width:600px){
-width:126%;
-left:-49px;
-margin-right:0px;
 padding: 0px;
 height: 78px;
 height: 47px;

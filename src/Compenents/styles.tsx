@@ -52,19 +52,23 @@ color: #000000;
 }
 
 `
-export const HeaderWrapper = styled.div``
+export const HeaderWrapper = styled.div`
+`
 export const NavBar = styled.div`
 background: white;
 position: fixed;
 height: 46px;
-right: 0%;
-left: 0%;
+width:100%;
 top: 0%;
 display: flex;
-padding:0 5%;
 align-items: center;
-justify-content: space-between;
-z-index: 10;
+z-index: 1;
+@media screen and (min-width:600px){
+    width:82.4%;
+    justify-content:space-between;
+    padding-left:8.8%;
+    padding-right:8.8%;
+}
 `
 export const Epicure = styled.div`
 font-family: 'Helvetica Neue';
@@ -78,6 +82,7 @@ color: #000000;
 `
 
 export const LeftSide = styled.div`
+margin:11px 0 11px 20px;
 @media screen and (min-width:600px){
     display: flex;
     list-style-type: none;
@@ -85,13 +90,16 @@ export const LeftSide = styled.div`
     gap:15px;
 }
 `
+export const HeaderDesktopWrapper=styled.div`
+
+`
+
 export const Icon = styled.img``
 
 export const IconPointer=styled(Icon)`
 cursor:pointer;
 `
 export const IconXClose=styled(IconPointer)`
-padding-left:20px;
 `
 export const IconButton = styled.button`
 background: transparent;
@@ -100,13 +108,16 @@ cursor: pointer;
 `
 export const MiddleSide = styled.div`
 cursor:pointer;
+margin:7px 13% 7px 29%;
 `
 export const RightSide = styled.div`
+margin:13px 20px 13px 0;
 @media screen and (min-width:600px){
     display: flex;
     list-style-type: none;
     align-items:center;
     gap:15px;
+    right:0;
 }
 `
 export const MenuBackground = styled.div`
@@ -117,7 +128,7 @@ position:fixed;
 left: 0%;
 right: 0%;
 top: 0%;
-z-index:10;
+z-index:1;
 box-shadow: 2px 4px 10px rgba(175, 175, 175, 0.25);
 `
 export const Menu = styled.ul`
@@ -162,7 +173,7 @@ position:fixed;
 left: 0%;
 right: 0%;
 top: 0%;
-z-index:10;
+z-index:1;
 `
 export const NavBarHeader = styled(NavBar)`
 justify-content:normal;

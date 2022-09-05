@@ -1,44 +1,46 @@
 import styled from "styled-components";
 
-export const Restaurant=styled.div`
+export const Restaurant = styled.div`
 cursor:pointer;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 padding: 0px;
-width: 90%;
-height: 100%;
+min-height: 288px;
 @media screen and (min-width:600px){
-    height: 100%;
+    min-height: 405px;
 }
 `
-export const RestaurantImg=styled.img`
-height: 100%;
+export const RestaurantImgDiv=styled.div`
+height: 207px;
 width:100%;
 @media screen and (min-width:600px){
-    height: 100%;
-}
+    height: 236px;
+}`
+export const RestaurantImg = styled.img`
+width:100%;
+height:100%;
 `
-export const RestaurantInfo=styled.div`
+export const RestaurantInfo = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 padding: 16px;
 gap: 10px;
-width:90%;
 background: #F9F4EA;
-height: 100%;
+width:-webkit-fill-available;
+height:100%;
 @media screen and (min-width:600px){
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    width:91%;
+    padding: 24px;
+
 }
 `
-export const RestaurantName=styled.div`
-height: 21px;
+export const RestaurantName = styled.div`
 font-family: 'Helvetica Neue';
 font-style: normal;
 font-weight: 400;
@@ -47,12 +49,11 @@ line-height: 21px;
 letter-spacing: 2.67px;
 color: #000000;
 @media screen and (min-width:600px){
-    height:47px;
     font-size: 40px;
     line-height: 47px;
 }
 `
-export const RestaurantChefName=styled.div`
+export const RestaurantChefName = styled.div`
 height: 20px;
 font-family: 'Helvetica Neue';
 font-style: normal;
@@ -68,7 +69,8 @@ line-height: 30px;
 }
 `
 
-export const Restaurantv2=styled.div`
+export const Restaurantv2 = styled.div`
+cursor:pointer;
 display: flex;
 flex-direction: column;
 width:fit-content;
@@ -81,14 +83,14 @@ height: 233.34px;
 
 }
 `
-export const Restaurantv2Img=styled.img`
+export const Restaurantv2Img = styled.img`
 height: 152.34px;
 @media screen and (min-width:600px){
     height: 224px;
     width:100%;
 }
 `
-export const RestaurantInfov2=styled.div`
+export const RestaurantInfov2 = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -105,7 +107,7 @@ width:87%;
     width: 100%; 
 }
 `
-export const Restaurantv2Name=styled.div`
+export const Restaurantv2Name = styled.div`
 height: 21px;
 font-family: 'Helvetica Neue';
 font-style: normal;
