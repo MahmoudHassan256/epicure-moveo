@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { WrapperPopularRestaurantsSection } from "../PopularRestaurantsSection/Styles";
 export const WrapperChefOfTheWeekSection=styled(WrapperPopularRestaurantsSection)`
-margin-top:48px;
+margin:48px 0 0 5.333%;
 align-items: flex-start;
 @media screen and (min-width:600px){
     margin-top:80px;
@@ -36,6 +36,7 @@ margin-bottom:12px;
 }
 `
 export const ChefInfoSection=styled.div`
+margin:0 5.333% 0 0;
 @media screen and (min-width:600px){
     display:flex;
     flex-direction:row;

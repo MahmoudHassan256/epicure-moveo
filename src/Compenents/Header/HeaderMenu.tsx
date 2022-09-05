@@ -30,7 +30,7 @@ export default function HeaderMenu(props: UpdateOpen) {
           <MenuText onClick={()=>{
             GoToChefs();
             props.CloseMenu(false);
-          }}>Chefts</MenuText>
+          }}>Chefs</MenuText>
         </Menu>
         <Footer/>
       </MenuBackground>

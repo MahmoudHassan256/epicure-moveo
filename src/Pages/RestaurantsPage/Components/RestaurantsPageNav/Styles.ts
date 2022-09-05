@@ -8,6 +8,7 @@ align-items: center;
 padding: 0px;
 gap:18px;
 height: 22px;
+margin:0  0 0 5.333%;
 @media screen and (min-width:600px){
     align-self:center;
     justify-content: center;

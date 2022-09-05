@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Dish=styled.div`
+cursor:pointer;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -13,6 +14,7 @@ height: 390px;
 }
 `
 export const DishImg=styled.img`
+
 height: 152px;
 width:100%;
 
@@ -46,8 +48,8 @@ line-height: 21px;
 letter-spacing: 2.67px;
 color: #000000;
 @media screen and (min-width:600px){
-    height: 94px;
     font-size: 40px;
+    height:47px;
     line-height: 47px;
     text-align: center;  
 }
@@ -62,7 +64,7 @@ line-height: 20px;
 letter-spacing: 1.97px;
 color: #000000;
 @media screen and (min-width:600px){
-    height: 153px;
+    height: 100%;
     width:79%;
     font-size: 24px;
     line-height: 30px;
@@ -134,4 +136,9 @@ width:77%;
 display:flex;
 justify-content:center;
 align-items:center;
+`
+
+export const IconBox=styled.div`
+width: 8px;
+height: 19px;
 `

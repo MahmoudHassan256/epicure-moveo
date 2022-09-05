@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Epicure, HeaderWrapper, Icon, IconButton, LeftSide, MenuText, MenuTextBold, NavBar, RightSide, SearchInput } from '../styles'
+import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Epicure, HeaderDesktopWrapper, Icon, IconButton, LeftSide, MenuText, MenuTextBold, NavBar, RightSide, SearchInput } from '../styles'
 
 export default function HeaderDesktop() {
+    const location = useLocation();
+
     const navigate = useNavigate();
     function GoToChefs() {
         navigate('Chefs');
         window.scrollTo(0, 0);
     }
-    const [ActiveTab, setActiveTab] = useState('');
     function GoToRestaurants() {
         navigate('Restaurants');
         window.scrollTo(0, 0);
@@ -18,20 +19,13 @@ export default function HeaderDesktop() {
         window.scrollTo(0, 0);
     }
     return (
-        <HeaderWrapper>
+        <HeaderDesktopWrapper>
             <NavBar>
                 <LeftSide>
                     <Icon src="./Images/Logo.svg" alt="logo" />
-                    <Epicure onClick={() => { GoToHome();
-                    setActiveTab(''); }}>Epicure</Epicure>
-                    {(ActiveTab === 'Restaurants' && <MenuTextBold>Resturansts </MenuTextBold>) || <MenuText onClick={() => {
-                        setActiveTab('Restaurants');
-                        GoToRestaurants();
-                    }}>Resturansts</MenuText>}
-                    {(ActiveTab === 'Chefts' && <MenuTextBold>Chefts </MenuTextBold>) || <MenuText onClick={() => {
-                        setActiveTab('Chefts');
-                        GoToChefs();
-                    }}>Chefts</MenuText>}
+                    <Epicure onClick={() => { GoToHome() }}>Epicure</Epicure>
+                    {((location.pathname === '/Restaurant' || location.pathname === '/Restaurants') && <MenuTextBold onClick={() => { GoToRestaurants() }}>Resturansts </MenuTextBold>) || <MenuText onClick={() => { GoToRestaurants(); }}>Resturansts</MenuText>}
+                    {((location.pathname === '/Chefs') && <MenuTextBold onClick={() => { GoToChefs() }}>Chefs </MenuTextBold>) || <MenuText onClick={() => { GoToChefs(); }}>Chefs</MenuText>}
                 </LeftSide>
                 <RightSide>
                     <SearchInput type="text" />
@@ -40,6 +34,6 @@ export default function HeaderDesktop() {
                     <IconButton><Icon src="./Images/Icon/Bag.svg" alt="" /></IconButton>
                 </RightSide>
             </NavBar>
-        </HeaderWrapper>
+        </HeaderDesktopWrapper>
     )
 }
