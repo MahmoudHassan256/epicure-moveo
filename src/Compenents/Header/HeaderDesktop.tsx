@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Epicure, HeaderDesktopWrapper, Icon, IconButton, LeftSide, MenuText, MenuTextBold, NavBar, RightSide, SearchInput } from '../styles'
+import { Epicure, HeaderDesktopWrapper, Icon, IconButton, LeftSide, MenuText, MenuTextBold, NavBar, RightSide, SearchBoxDesktop, SearchInput } from '../styles'
+import SearchBoxResultHeader from './SearchBoxResultHeader/SearchBoxResultHeader';
 
 export default function HeaderDesktop() {
     const location = useLocation();
@@ -17,7 +18,11 @@ export default function HeaderDesktop() {
     function GoToHome() {
         navigate('');
         window.scrollTo(0, 0);
+
     }
+    const [OpenSearch, updateOpenSearch] = useState(false);
+    const [SearchResult, updateSearchResult] = useState("");
+
     return (
         <HeaderDesktopWrapper>
             <NavBar>
@@ -28,8 +33,19 @@ export default function HeaderDesktop() {
                     {((location.pathname === '/Chefs') && <MenuTextBold onClick={() => { GoToChefs() }}>Chefs </MenuTextBold>) || <MenuText onClick={() => { GoToChefs(); }}>Chefs</MenuText>}
                 </LeftSide>
                 <RightSide>
-                    <SearchInput type="text" />
-                    <IconButton><Icon src="./Images/Icon/Search.svg" alt="" /></IconButton>
+                    {OpenSearch && <SearchBoxDesktop>
+                        <SearchInput type="text" placeholder='Search for restaurant dish' onChange={(event)=>{updateSearchResult(event.target.value)}}/>
+                        <IconButton onClick={() => {
+                            updateOpenSearch(false);
+                            updateSearchResult("");
+
+                            }}><Icon src="./Images/Icon/Search.svg" alt="" /></IconButton>
+                    </SearchBoxDesktop>
+                    }
+                    {SearchResult!=="" && <SearchBoxResultHeader value={SearchResult}/>}
+                    {!OpenSearch && <IconButton onClick={() => {
+                    updateOpenSearch(true);
+                    }}><Icon src="./Images/Icon/Search.svg" alt="" /></IconButton>}
                     <IconButton><Icon src="./Images/Icon/User.svg" alt="" /></IconButton>
                     <IconButton><Icon src="./Images/Icon/Bag.svg" alt="" /></IconButton>
                 </RightSide>

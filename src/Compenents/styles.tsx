@@ -14,7 +14,16 @@ bottom: 0%;
     gap: 10px;
 }
 `
-export const Box=styled.div``
+export const Div = styled.div``
+export const Row = styled.div`
+    display:flex;
+    flex-direction: row;
+`
+export const Column = styled.div`
+    display:flex;
+    flex-direction:column;
+`
+export const Box = styled.div``
 export const FooterContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -64,6 +73,7 @@ display: flex;
 align-items: center;
 z-index: 1;
 @media screen and (min-width:600px){
+    height:64px;
     width:82.4%;
     justify-content:space-between;
     padding-left:8.8%;
@@ -90,16 +100,17 @@ margin:11px 0 11px 20px;
     gap:15px;
 }
 `
-export const HeaderDesktopWrapper=styled.div`
+export const HeaderDesktopWrapper = styled.div`
 
 `
 
 export const Icon = styled.img``
 
-export const IconPointer=styled(Icon)`
+export const IconPointer = styled(Icon)`
 cursor:pointer;
 `
-export const IconXClose=styled(IconPointer)`
+export const IconXClose = styled(IconPointer)`
+margin-left:3px;
 `
 export const IconButton = styled.button`
 background: transparent;
@@ -121,11 +132,10 @@ margin:13px 20px 13px 0;
 }
 `
 export const MenuBackground = styled.div`
-padding-top:10px;
 height: 413px;
 background: #FFFFFF;
 position:fixed;
-left: 0%;
+left: 0px;
 right: 0%;
 top: 0%;
 z-index:1;
@@ -157,7 +167,7 @@ letter-spacing: 1.92px;
 color: #000000;
 cursor: pointer;
 `
-export const MenuTextBold=styled(MenuText)`
+export const MenuTextBold = styled(MenuText)`
 font-weight:bold;
 text-decoration: underline #DE9200;
 `
@@ -167,7 +177,8 @@ width: 90%;
 margin-bottom: 7%;
 `
 export const SearchBackground = styled.div`
-height:413px ;
+max-height:413px ;
+min-height:350px;
 background: #FFFFFF;
 position:fixed;
 left: 0%;
@@ -179,6 +190,7 @@ export const NavBarHeader = styled(NavBar)`
 justify-content:normal;
 background: white;
 position: relative;
+margin:0px 0 13px 23px;
 height: 46px;
 left: 0%;
 top: 0%;
@@ -188,14 +200,13 @@ text-align: center;
 gap: 30%;
 
 `
-export const SheikelLine=styled.div`
+export const SheikelLine = styled.div`
 height: 0px;
 width:40%;
 border: 0.5px solid #979797;
 `
 export const SearchTerm = styled.div`
 font-family: 'Helvetica Neue';
-marin-left:50%;
 font-style: normal;
 font-weight: 200;
 font-size: 18px;
@@ -204,9 +215,9 @@ letter-spacing: 1.92px;
 color: #000000;
 `
 export const NavBarContent = styled.div`
-padding:24px 31px 0 31px;
+padding:0 31px 0 31px;
 background:white;
-height: 367px;
+max-height: 367px;
 `
 export const SearchBar = styled.div`
 box-sizing: border-box;
@@ -223,11 +234,22 @@ border: none;
 width: 100%;
 background-color: transparent;
 @media screen and (min-width:600px){
-    font-style: normal;
-    font-weight: 200;
-    font-size: 24px;
-    line-height: 29px;
-    letter-spacing: 1.29px;
-    color: #000000;}
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 200;
+font-size: 18px;
+line-height: 22px;
+letter-spacing: 1.29px;
+color: #000000;
+    }
+`
+
+
+export const SearchBoxDesktop = styled(Row)`
+align-items: center;
+padding: 6px 12px;
+border: 0.5px solid #000000;
+border-radius: 4px;
+width:100%;
 `
 

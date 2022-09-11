@@ -1,24 +1,32 @@
 import { Checkbox } from '@material-ui/core';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AddToBagBtn, ChangeInput, ChangesContainer, ChangesHeader, CloseIcon, Container, DishProfileBackground, DishProfileHeader, DishProfileWrapper, MinusBtn, PlusBtn, QuantityContainer, QuantityCounter, QuantityHeader, QuantityNumber, SideChoserContainer, SideChoserHeader, SiderInput } from './styles'
 import { sides, changes } from '../../Constants/Variables'
 import HeroDish from './HeroDish/HeroDish';
-import Footer from '../Footer/Footer';
-import IsDesktop from '../../Helper/WindowCheker';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { DishBagData } from '../../Interfaces/LayoutInterfaces';
+import { setBag } from '../../Slicers/BagSlice';
 interface sidesArrayData {
   value: string,
   state: boolean,
 }
 export default function DishProfileMobile() {
   const [Quantity, updateQuantity] = useState<number>(1);
+  const dispatch = useDispatch();
+  const location=useLocation();
   const increaseCount = () => { updateQuantity(Quantity + 1) }
-  const navigate=useNavigate();
-  const Dish = useSelector((state:any) => state.selecteddish.value);
+  const navigate = useNavigate();
+  const Dish = useSelector((state: any) => state.selecteddish.value);
   const decreaseCount = () => { if (Quantity > 1) updateQuantity(Quantity - 1) }
   const [SidesChecked, updateSides] = useState<sidesArrayData[]>([]);
   const [ChangesChecked, updateChanges] = useState<sidesArrayData[]>([]);
+  const [dishtoBag, setdishtoBag] = useState<DishBagData>({ name: Dish.name, price: Dish.price, url: Dish.url, quantity: Quantity });
+  useEffect(()=>{
+    if(Object.keys(Dish).length===0 && location.pathname==='/Dish'){
+    navigate(-1);
+    }
+  })
   const addSide = (value: string) => {
     let temp = SidesChecked.filter((ele) => ele.value === value);
     if (temp.length === 0) {
@@ -40,8 +48,8 @@ export default function DishProfileMobile() {
   return (
     <DishProfileBackground>
       <DishProfileWrapper>
-      <DishProfileHeader>
-        {!IsDesktop() && <CloseIcon src="Images/Icon/X.svg" alt="" onClick={() => {navigate(-1);window.scrollTo(0,0)}} />}
+        <DishProfileHeader>
+        <CloseIcon src="Images/Icon/X.svg" alt="" onClick={() => { navigate(-1); window.scrollTo(0, 0) }} />
         </DishProfileHeader>
         <HeroDish url={Dish.url} name={Dish.name} ingredients={Dish.ingredients} price={Dish.price} />
         <Container>
@@ -67,14 +75,25 @@ export default function DishProfileMobile() {
           <QuantityContainer>
             <QuantityHeader>Quantity</QuantityHeader>
             <QuantityCounter>
-              <MinusBtn src='Images/Icon/Minus.svg' alt='minus' onClick={decreaseCount} />
+              <MinusBtn src='Images/Icon/Minus.svg' alt='minus' onClick={() => {
+                decreaseCount();
+                setdishtoBag({ ...dishtoBag, quantity: Quantity-1 });
+              }} />
               <QuantityNumber>{Quantity}</QuantityNumber>
-              <PlusBtn src='Images/Icon/Plus.svg' alt='plus' onClick={increaseCount} />
+              <PlusBtn src='Images/Icon/Plus.svg' alt='plus' onClick={() => {
+                increaseCount();
+                setdishtoBag({ ...dishtoBag, quantity: Quantity+1 });
+              }} />
             </QuantityCounter>
           </QuantityContainer>
-          <AddToBagBtn onClick={() => { navigate(-1);window.scrollTo(0,0) }}>Add to bag</AddToBagBtn>
+          <AddToBagBtn onClick={() => {
+            if (dishtoBag.quantity > 0) {
+              dispatch(setBag(dishtoBag));
+            }
+            navigate(-1);
+            window.scrollTo(0, 0);
+          }}>Add to bag</AddToBagBtn>
         </Container>
-        {!IsDesktop() && <Footer />}
       </DishProfileWrapper>
     </DishProfileBackground>
   )

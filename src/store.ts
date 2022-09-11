@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import BagSlice from "./Slicers/BagSlice";
 import ChefsSlice from "./Slicers/ChefsSlice";
 import DishesSlice from "./Slicers/DishesSlice";
 import RestaurantsSlice from "./Slicers/RestaurantsSlice";
@@ -11,5 +12,6 @@ export default configureStore({
         dishes:DishesSlice,
         chefs:ChefsSlice,
         selecteddish:SelectedDishSlice,
+        bag:BagSlice,
     },
 })

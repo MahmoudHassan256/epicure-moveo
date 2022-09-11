@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { UpdateOpen } from './Header'
 import { HeaderWrapper, Icon, IconButton, NavBarContent, NavBarHeader, SearchBackground, SearchBar, SearchInput, SearchTerm } from '../styles'
+import SearchBoxResultHeader from './SearchBoxResultHeader/SearchBoxResultHeader';
 
 export default function HeaderSearch(props: UpdateOpen) {
+    const [SearchResult, updateSearchResult] = useState("");
     return (
         <HeaderWrapper>
             <SearchBackground>
@@ -13,8 +15,9 @@ export default function HeaderSearch(props: UpdateOpen) {
                 <NavBarContent>
                     <SearchBar>
                         <IconButton><Icon src="/Images/Icon/Search.svg" alt="search" /></IconButton>
-                        <SearchInput type="text" placeholder='Search for restaurant cuisine, chef' />
+                        <SearchInput type="text" placeholder='Search for restaurant cuisine, chef' onChange={(event) => { updateSearchResult(event.target.value) }} />
                     </SearchBar>
+                    {SearchResult!=="" && <SearchBoxResultHeader value={SearchResult}/>}
                 </NavBarContent>
             </SearchBackground>
         </HeaderWrapper>

@@ -1,5 +1,7 @@
 import { Dispatch, SetStateAction } from "react"
 
+
+
 export interface RestaurantData{
     name?:string
     chef?:string
@@ -14,9 +16,17 @@ export interface DishData{
     name?:string
     ingredients?:string
     url?:string
-    price?:number
+    price:number
     type?:string
     closeModal?:Dispatch<SetStateAction<boolean>>
+}
+export interface DishBagData{
+    name:string
+    url:string
+    price:number
+    quantity:number
+    sides?:[]
+    changes?:[]
 }
 export interface ChefData{
     award?:boolean
