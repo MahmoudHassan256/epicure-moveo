@@ -54,6 +54,7 @@ font-size: 16px;
 line-height: 20px;
 letter-spacing: 1.97px;
 color: #000000;
+text-overflow: ellipsis;
 @media screen and (min-width:600px){
 display:flex;
 flex-direction:row;

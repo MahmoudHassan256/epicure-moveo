@@ -7,7 +7,6 @@ export const DishProfileWrapper = styled.div`
     z-index:4;
 
 width:39.7%;
-overflow:scroll;
 margin:0px auto 80px;
 }
 `
@@ -32,7 +31,10 @@ export const DishProfileHeader = styled.div`
 width:100%;
 height:46px;
 background: #FFFFFF;
+z-index:3;
+position:fixed;
 @media screen and (min-width:600px){
+    position:initial;
     margin:80px auto 0;
     height:auto;
     background:none;

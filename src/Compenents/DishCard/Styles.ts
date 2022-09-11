@@ -63,7 +63,9 @@ font-size: 16px;
 line-height: 20px;
 letter-spacing: 1.97px;
 color: #000000;
+overflow: hidden;
 @media screen and (min-width:600px){
+    overflow:visible;
     height: 100%;
     width:79%;
     font-size: 24px;
