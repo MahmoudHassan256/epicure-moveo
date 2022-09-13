@@ -1,5 +1,7 @@
+import { Slider } from "@mui/material";
 import styled from "styled-components";
-export const WrapperPriceRangeSection=styled.div`
+import { styled as muiStyled } from "@mui/system";
+export const WrapperPriceRangeSection = styled.div`
 position: absolute;
 width:353px;
 display:flex;
@@ -9,28 +11,46 @@ top: 60px;
 background: #FFFFFF;
 box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
 `
-export const PriceSection=styled.div`
+export const RangeSlider = muiStyled(Slider) <{ changed:{left:boolean,right:boolean}}>`
+    width: 90%;
+    margin:0 5%;
+    height:1px;
+    color:#979797;
+.MuiSlider-thumb{
+        color:${(props) => props.changed.left? "#DE9200" : "black"};
+    }
+    .MuiSlider-thumb{
+        color:${(props) => props.changed.right? "#DE9200" : "black"};
+    }
+
+
+`
+export const PriceSection = styled.div`
 height: 49px;
 width:59.7%;
 margin:12px auto 22px;
 `
-export const SliderSection=styled.div`
+export const SliderSection = styled.div`
 height: 56px;
 background: #F9F4EA;
 border-radius: 8px;
 width:87%;
 margin:0 auto 15px;
 `
-export const MinRange=styled.div``
-export const MaxRange=styled.div``
-export const SliderHeader=styled.div`
+export const MinRange = styled.div<{ state: any }>`
+    color:${props => props.state ? "#DE9200" : "#000000"};
+`
+export const MaxRange = styled.div<{ state: boolean }>`
+    color:${props => props.state ? "#DE9200" : "#000000"};
+`
+export const SliderHeader = styled.div`
 display:flex;
 align-items:center;
 justify-content:space-between;
 width:92%;
 margin:auto;
 `
-export const PriceRangeText=styled.div`
+export const PriceRangeText = styled.div`
 display: flex;
 width:34.7%;
 margin:auto;
@@ -40,7 +60,7 @@ align-items: center;
 padding: 0px;
 gap: 3px;
 `
-export const PriceRangeSelectedText=styled.div`
+export const PriceRangeSelectedText = styled.div`
 font-family: 'Helvetica Neue';
 font-style: normal;
 margin-top:12px;
@@ -50,21 +70,21 @@ line-height: 21px;
 letter-spacing: 1.92px;
 color: #000000;
 `
-export const MinPrinceRange=styled.div`
+export const MinPrinceRange = styled.div`
 display: flex;
 flex-direction: row;
 align-items: flex-end;
 padding: 0px;
 gap: 2px;
 `
-export const MaxPriceRange=styled.div`
+export const MaxPriceRange = styled.div`
 display: flex;
 flex-direction: row;
 align-items: flex-end;
 padding: 0px;
 gap: 2px;
 `
-export const PriceRangeDivider=styled.div`
+export const PriceRangeDivider = styled.div`
 font-family: 'Helvetica Neue';
 font-style: normal;
 font-weight: 200;
@@ -75,11 +95,11 @@ align-items: center;
 letter-spacing: 1.97px;
 color: #000000;
 `
-export const SheikelIcon=styled.img`
+export const SheikelIcon = styled.img`
 width: 5.32px;
 height: 5.17px;
 `
-export const Price=styled.div`
+export const Price = styled.div`
 height: 11px;
 font-family: 'Helvetica Neue';
 font-style: normal;
@@ -91,7 +111,7 @@ align-items: center;
 letter-spacing: 1.97px;
 color: #000000;
 `
-export const ClearBtn=styled.button`
+export const ClearBtn = styled.button`
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -112,7 +132,7 @@ text-transform: uppercase;
 color: #000000;
 background: #FFFFFF;
 `
-export const SliderBox=styled.div`
+export const SliderBox = styled.div`
 width:92%;
 margin:auto;
 `

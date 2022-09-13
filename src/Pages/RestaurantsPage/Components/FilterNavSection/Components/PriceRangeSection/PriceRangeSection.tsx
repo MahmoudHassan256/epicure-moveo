@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { ClearBtn, MaxPriceRange, MaxRange, MinPrinceRange, MinRange, Price, PriceRangeDivider, PriceRangeSelectedText, PriceRangeText, PriceSection, SheikelIcon, SliderBox, SliderHeader, SliderSection, WrapperPriceRangeSection } from './styles'
-
+import { ClearBtn, MaxPriceRange, MaxRange, MinPrinceRange, MinRange, Price, PriceRangeDivider, PriceRangeSelectedText, PriceRangeText, PriceSection, RangeSlider, SheikelIcon, SliderBox, SliderHeader, SliderSection, WrapperPriceRangeSection } from './styles'
+const minValue=12;
+const maxValue=357;
 
 export default function PriceRangeSection() {
   const [ClearBtnState,updateClearBtn]=useState(false)
-  const [Range, setRange] = useState<number[]>([12, 357]);
+  const [Range, setRange] = useState<number[]>([minValue, maxValue]);
+  const [changed,updateChanged]=useState({left:false,right:false});
   return (
     <WrapperPriceRangeSection>
       <PriceSection>
@@ -12,26 +14,48 @@ export default function PriceRangeSection() {
         <PriceRangeText>
           <MinPrinceRange>
             <SheikelIcon src='Images/Icon/Sheikel.svg'/>
-            <Price>12</Price>
+            <Price>{minValue}</Price>
           </MinPrinceRange>
           <PriceRangeDivider>-</PriceRangeDivider>
           <MaxPriceRange>
             <SheikelIcon src='Images/Icon/Sheikel.svg'/>
-            <Price>357</Price>
+            <Price>{maxValue}</Price>
           </MaxPriceRange>
         </PriceRangeText>
       </PriceSection>
       <SliderSection>
       <SliderHeader>
-        <MinRange><SheikelIcon src='Images/Icon/Sheikel.svg'/>{Range[0]}</MinRange>
-        <MaxRange><SheikelIcon src='Images/Icon/Sheikel.svg'/>{Range[1]}</MaxRange>
+        <MinRange state= {Range[0]>minValue ? true : false} ><SheikelIcon src='Images/Icon/Sheikel.svg'/>{Range[0]}</MinRange>
+        <MaxRange state= {Range[1]<maxValue ? true : false} ><SheikelIcon src='Images/Icon/Sheikel.svg'/>{Range[1]}</MaxRange>
       </SliderHeader>
       <SliderBox>
-      
+        <RangeSlider changed={changed}
+        getAriaLabel={() => 'Minimum distance'}
+        value={Range}
+        min={minValue}
+        max={maxValue}
+        onChange={(event,data)=>{setRange(data as number[]);
+        if(Range[0]>minValue || Range[1]<maxValue){
+        updateClearBtn(true);
+        if(Range[0]>minValue){updateChanged({...changed,left:true})}
+       
+        if(Range[1]<maxValue){updateChanged({...changed,right:true})} 
+        else{updateChanged({left:true,right:true})}
+      }
+        else{
+          updateClearBtn(false);
+          updateChanged({left:false,right:false})
+        }
+
+      }}
+        
+      disableSwap/>
       </SliderBox>
       </SliderSection>
       {ClearBtnState && <ClearBtn onClick={()=>{updateClearBtn(false);
-     setRange([12,357]);
+     setRange([minValue,maxValue]);
+     updateChanged({left:false,right:false})
+
     }}>Clear</ClearBtn>}
 
     </WrapperPriceRangeSection>
