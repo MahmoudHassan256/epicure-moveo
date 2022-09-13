@@ -44,7 +44,6 @@ color: #000000;
 export const Values = styled.div`
 display:flex;
 flex-direction:column;
-overflow:scroll;
 `
 export const FilterBox = styled.div`
 display:flex;
