@@ -1,4 +1,3 @@
-import { Slider } from '@material-ui/core'
 import React, { useState } from 'react'
 import { ClearBtn, MaxPriceRange, MaxRange, MinPrinceRange, MinRange, Price, PriceRangeDivider, PriceRangeSelectedText, PriceRangeText, PriceSection, SheikelIcon, SliderBox, SliderHeader, SliderSection, WrapperPriceRangeSection } from './styles'
 
@@ -28,15 +27,7 @@ export default function PriceRangeSection() {
         <MaxRange><SheikelIcon src='Images/Icon/Sheikel.svg'/>{Range[1]}</MaxRange>
       </SliderHeader>
       <SliderBox>
-      <Slider
-      value={Range}
-      getAriaLabel={() => 'Temperature range'}
-      onChange={(e,data)=>{setRange(data as number[]);
-      updateClearBtn(true);
-      }}
-      max={357}
-      min={12}
-      />
+      
       </SliderBox>
       </SliderSection>
       {ClearBtnState && <ClearBtn onClick={()=>{updateClearBtn(false);

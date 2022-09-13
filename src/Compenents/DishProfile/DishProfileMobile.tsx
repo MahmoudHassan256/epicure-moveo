@@ -1,4 +1,3 @@
-import { Checkbox } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
 import { AddToBagBtn, ChangeInput, ChangesContainer, ChangesHeader, CloseIcon, Container, DishProfileBackground, DishProfileHeader, DishProfileWrapper, MinusBtn, PlusBtn, QuantityContainer, QuantityCounter, QuantityHeader, QuantityNumber, SideChoserContainer, SideChoserHeader, SiderInput } from './styles'
 import { sides, changes } from '../../Constants/Variables'
@@ -57,7 +56,7 @@ export default function DishProfileMobile() {
             <SideChoserHeader>Choose a side</SideChoserHeader>
             {sides.map((side, key) =>
               <SiderInput key={key}>
-                <Checkbox onChange={() => { addSide(side.value); }} />
+                <input type={"checkbox"}  onChange={() => { addSide(side.value); }} />
                 {side.value}
               </SiderInput>
             )}
@@ -67,7 +66,7 @@ export default function DishProfileMobile() {
             <ChangesHeader>Changes</ChangesHeader>
             {changes.map((change, key) =>
               <ChangeInput key={key}>
-                <Checkbox onChange={() => { addChange(change.value) }} />
+                <input type={"checkbox"}  onChange={() => { addChange(change.value) }} />
                 {change.value}
               </ChangeInput>
             )}

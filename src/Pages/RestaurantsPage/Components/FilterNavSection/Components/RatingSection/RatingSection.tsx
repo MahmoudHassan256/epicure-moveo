@@ -1,4 +1,3 @@
-import { Checkbox } from '@material-ui/core'
 import React, { useState } from 'react'
 import StartContainer from './Components/StartContainer'
 import { BottomSection, ClearBtn, FormElement, TopSection, WrapperRatingSection } from './styles'
@@ -11,7 +10,7 @@ export default function RatingSection() {
   function fillform(starnumber: number) {
     return (
       <FormElement>
-        <Checkbox
+        <input type={"checkbox"} 
           onChange={(e) => {
             Rating[starnumber - 1] = e.target.checked
             updateClearBtn(true);
