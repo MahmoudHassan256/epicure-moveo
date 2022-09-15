@@ -34,7 +34,6 @@ height:40px;
 
 align-items:center;
 width:71.1%;
-border:solid black 1px;
 `
 
 export const ClearBtn=styled.button`
