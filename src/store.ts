@@ -4,6 +4,8 @@ import ChefsSlice from "./Slicers/ChefsSlice";
 import DishesSlice from "./Slicers/DishesSlice";
 import RestaurantsSlice from "./Slicers/RestaurantsSlice";
 import  SelectedDishSlice  from "./Slicers/SelectedDishSlice";
+import SingInStateSlice from "./Slicers/SingInStateSlice";
+import  SingUpStateSlice  from "./Slicers/SingUpStateSlice";
 
 
 export default configureStore({
@@ -13,5 +15,7 @@ export default configureStore({
         chefs:ChefsSlice,
         selecteddish:SelectedDishSlice,
         bag:BagSlice,
+        signupstate:SingUpStateSlice,
+        signinstate:SingInStateSlice,
     },
 })
