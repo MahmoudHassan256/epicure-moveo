@@ -10,6 +10,7 @@ background: #FFFFFF;
 height: 46px;
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07);
 `
+
 export const CloseBtn=styled.button`
 background: transparent;
 border: none;
@@ -183,4 +184,16 @@ letter-spacing: 2.67px;
 text-transform: uppercase;
 color: #000000;
 background:transparent;
+`
+export const HeaderUserContentButton=styled(Signup)``
+export const HeaderUserContent=styled(HeaderSignInContent)``
+export const HeaderUserContentHeader=styled(HeaderSignInHeader)`
+width:100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+export const HeaderUserContentHeaderValue=styled.div`
+font-weight: bold;
 `

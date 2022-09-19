@@ -13,12 +13,12 @@ export default function ChefOfTheWeekSection() {
   const chef=ChefsArray[0];
   function AddRestaurantsDesktop(){
     return (chef?.Restaurantscontainer?.slice(0,3).map((data, key) =>
-      <RestaurantCardv2 key={key} {...data} />
+      <RestaurantCardv2 key={key} {...data} dishescontainer={data.dishescontainer} />
     ))
   }
   function AddRestaurantsMobile(){
     return (chef?.Restaurantscontainer?.map((data, key) =>
-      <RestaurantCardv2 key={key} {...data} />
+      <RestaurantCardv2 key={key} {...data} dishescontainer={data.dishescontainer} />
     ))
   }  
   return (

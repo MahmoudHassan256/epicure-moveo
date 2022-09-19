@@ -7,6 +7,7 @@ flex-direction: column;
 align-items: flex-start;
 padding: 0px;
 min-height: 288px;
+width: 100%;
 @media screen and (min-width:600px){
     min-height: 405px;
 }
