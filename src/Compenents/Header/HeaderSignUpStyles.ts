@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { HeaderSignInContent, HeaderSignInContentTopSide, HeaderSignInHeader, HeaderSignInLoginSide, HeaderSignInWrapper, Label, Password, SignInContinue, SignInText, Signup } from "./HeaderSignInStyles"
+import { HeaderSignInContent, HeaderSignInContentTopSide,  HeaderSignInHeader,  HeaderSignInLoginSide, HeaderSignInWrapper, Label, Password, SignInContinue, SignInText, Signup } from "./HeaderSignInStyles"
 export const HeaderSignUpWrapper=styled(HeaderSignInWrapper)``
 export const HeaderSignUpHeader=styled(HeaderSignInHeader)``
 export const HeaderSignUpContent=styled(HeaderSignInContent)`

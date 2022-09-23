@@ -7,9 +7,12 @@ import FilterNavSection from './Components/FilterNavSection/FilterNavSection'
 import RestaurantCard from '../../Compenents/RestaurantCard/RestaurantCard'
 import { useSelector } from 'react-redux'
 import { RestaurantData } from '../../Interfaces/LayoutInterfaces'
+import HeaderSignIn from '../../Compenents/Header/HeaderSignIn'
+import HeaderSignUp from '../../Compenents/Header/HeaderSignUp'
 
 export default function RestaurantsPage() {
-
+  const signInState: boolean = useSelector((state: any) => state.signinstate.value)
+  const signUpState: boolean = useSelector((state: any) => state.signupstate.value)
   const windowSize = SetWindowSize();
   const [ActiveTab,setActiveTab] = useState('All');
   if(ActiveTab==='Map View' && windowSize <600){
@@ -18,6 +21,8 @@ export default function RestaurantsPage() {
   const RestaurantPageArray:RestaurantData[]=useSelector((state:any)=> state.restaurants.value)
   
   return (
+    <div>
+    {IsDesktop() && ((signInState && <HeaderSignIn />) || (signUpState && <HeaderSignUp />))}
     <RestaurantsPageWrapper>
       {!IsDesktop() && <RestaurantsPageText>Restaurants</RestaurantsPageText>}
       <RestaurantsPageNav setActiveTab={setActiveTab} ActiveTab={ActiveTab}/>
@@ -37,5 +42,6 @@ export default function RestaurantsPage() {
           )}
       </RestaurantsPageRestaurantsContainer>
     </RestaurantsPageWrapper>
+    </div>
   )
 }
