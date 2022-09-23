@@ -74,7 +74,7 @@ align-items: center;
 z-index: 1;
 @media screen and (min-width:600px){
     height:64px;
-    width:73.5%;
+    width:82.5%;
     justify-content:space-between;
     padding-left:8.8%;
     padding-right:8.8%;

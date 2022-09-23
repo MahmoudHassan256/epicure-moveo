@@ -3,11 +3,12 @@ import { Icon } from '../styles'
 import validator from 'validator'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CloseBtn, Email, Forget, HeaderSignInContent, HeaderSignInContentTopSide, HeaderSignInHeader, HeaderSignInLoginSide, HeaderSignInWrapper, HeaderUserContent, HeaderUserContentButton, HeaderUserContentHeader, HeaderUserContentHeaderValue, Label, Line, LineSide, LoginButton, Or, Password, SignInContinue, SignInInput, SignInText, Signup, TextSide } from './HeaderSignInStyles'
+import { CloseBtn, Email, Forget, HeaderSignInBackground, HeaderSignInContent, HeaderSignInContentTopSide, HeaderSignInHeader, HeaderSignInLoginSide, HeaderSignInWrapper, HeaderUserContent, HeaderUserContentButton, HeaderUserContentHeader, HeaderUserContentHeaderValue, Label, Line, LineSide, LoginButton, Or, Password, SignInContinue, SignInInput, SignInText, Signup, TextSide } from './HeaderSignInStyles'
 import { useDispatch } from 'react-redux';
 import { setOpenSignUp } from '../../Slicers/SingUpStateSlice';
 import { setOpenSignIn } from '../../Slicers/SingInStateSlice';
 import { getCookie, removeCookie, setCookie } from 'typescript-cookie'
+import IsDesktop from '../../Helper/WindowCheker';
 
 
 export default function HeaderSignIn() {
@@ -17,8 +18,13 @@ export default function HeaderSignIn() {
     const [password, updatePassword] = useState("");
 
     return (
+        <div>
+        {IsDesktop() && <HeaderSignInBackground></HeaderSignInBackground>}
         <HeaderSignInWrapper>
-            <HeaderSignInHeader><CloseBtn onClick={() => dispatch(setOpenSignIn(false))}><Icon src='Images/Icon/X.svg' /></CloseBtn></HeaderSignInHeader>
+            <HeaderSignInHeader><CloseBtn onClick={() => dispatch(setOpenSignIn(false))}>
+                {!IsDesktop() && <Icon src='Images/Icon/X.svg' />}
+                {IsDesktop() && <Icon src='Images/Icon/XWhite.svg' />}
+            </CloseBtn></HeaderSignInHeader>
             {!getCookie("User") &&
                 <HeaderSignInContent>
                     <ToastContainer
@@ -100,7 +106,7 @@ export default function HeaderSignIn() {
                                             draggable: true,
                                             progress: undefined,
                                         });
-                                        setCookie('User', email, { path: "/", expires: 1 });
+                                        setCookie('User', content[0].firstname+" "+content[0].lastname, { path: "/", expires: 1 });
                                         setTimeout(() => dispatch(setOpenSignIn(false)), 1500);
                                     }
                                     else {
@@ -163,5 +169,6 @@ export default function HeaderSignIn() {
                 </HeaderUserContent>
             }
         </HeaderSignInWrapper>
+        </div>
     )
 }

@@ -8,7 +8,6 @@ import HomePage from '../Pages/HomePage/HomePage'
 import OrderPage from '../Pages/OrderPage/OrderPage'
 import RestaurantProfile from './RestaurantProfile/RestaurantProfile'
 import RestaurantsPage from '../Pages/RestaurantsPage/RestaurantsPage'
-import SignInPage from '../Pages/SignInPage/SignInPage'
 import { setChefs } from '../Slicers/ChefsSlice'
 import { setDishes } from '../Slicers/DishesSlice'
 import { setRestaurants } from '../Slicers/RestaurantsSlice'
@@ -43,7 +42,6 @@ export default function Layout() {
           <Route path='' element={<HomePage />} ></Route>
           <Route path='Restaurants' element={<RestaurantsPage />}></Route>
           <Route path='Order' element={<OrderPage />}></Route>
-          <Route path='Sign-In' element={<SignInPage />}></Route>
           <Route path='Check-Out' element={<CheckOutPage />}></Route>
           <Route path='Chefs' element={<ChefsPage />}></Route>
           <Route path='Restaurant' element={<RestaurantProfile/>}></Route>

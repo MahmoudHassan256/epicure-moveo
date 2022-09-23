@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Epicure, HeaderDesktopWrapper, Icon, IconButton, LeftSide, MenuText, MenuTextBold, NavBar, RightSide, SearchBoxDesktop, SearchInput } from '../styles'
 import SearchBoxResultHeader from './SearchBoxResultHeader/SearchBoxResultHeader';
+import {setOpenSignIn} from '../../Slicers/SingInStateSlice' 
 
 export default function HeaderDesktop() {
     const location = useLocation();
@@ -22,7 +24,7 @@ export default function HeaderDesktop() {
     }
     const [OpenSearch, updateOpenSearch] = useState(false);
     const [SearchResult, updateSearchResult] = useState("");
-
+    const dispatch=useDispatch();
     return (
         <HeaderDesktopWrapper>
             <NavBar>
@@ -46,7 +48,9 @@ export default function HeaderDesktop() {
                     {!OpenSearch && <IconButton onClick={() => {
                     updateOpenSearch(true);
                     }}><Icon src="./Images/Icon/Search.svg" alt="" /></IconButton>}
-                    <IconButton><Icon src="./Images/Icon/User.svg" alt="" /></IconButton>
+                    <IconButton onClick={()=>{
+                        dispatch(setOpenSignIn(true));
+                    }}><Icon src="./Images/Icon/User.svg" alt="" /></IconButton>
                     <IconButton><Icon src="./Images/Icon/Bag.svg" alt="" /></IconButton>
                 </RightSide>
             </NavBar>

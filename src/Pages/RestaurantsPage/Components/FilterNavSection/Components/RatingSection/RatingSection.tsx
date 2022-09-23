@@ -18,7 +18,6 @@ export default function RatingSection() {
         {ClearBtnState && <ClearBtn type='reset' onClick={() => {
           setRating([]);
           updateClearBtn(false)
-          console.log(Rating);
 
         }}>Clear</ClearBtn>}
       </BottomSection>

@@ -21,7 +21,6 @@ export default function DistanceSection() {
           defaultValue={maxDistance}
           step={.1}
           onChange={(event,data)=>{
-            console.log(data);
             setDistance(data as number);
             if(data < maxDistance){
             updateClearBtn(true);

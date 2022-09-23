@@ -1,20 +1,38 @@
 import styled from 'styled-components'
 export const HeaderSignInWrapper=styled.div`
 position:absolute;
-z-index: 1;
+z-index: 4;
 top:0;right:0;left:0;
+@media screen and (min-width:600px){
+    width:39.7%;
+margin:80px auto 80px;
+}
 `
+export const HeaderSignInBackground=styled.div`
+    position:fixed;
+    left:0;right:0;top:0;bottom:0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index:2;
 
+`
 export const HeaderSignInHeader=styled.div`
 background: #FFFFFF;
 height: 46px;
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07);
+@media screen and (min-width:600px){
+    z-index: 6;
+    background: transparent;
+}
 `
 
 export const CloseBtn=styled.button`
 background: transparent;
 border: none;
 margin: 15px 24px;
+@media screen and (min-width:600px){
+    margin:0;  
+}
+
 `
 export const HeaderSignInContent=styled.div`
 background: #FFFFFF;
@@ -25,6 +43,10 @@ max-height: 590px;
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07);
 padding: 40px 0px;
 gap: 40px;
+@media screen and (min-width:600px){
+background: #FFFFFF;
+z-index:99;
+}
 `
 export const HeaderSignInContentTopSide=styled.div`
 display: flex;

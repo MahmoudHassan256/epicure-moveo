@@ -3,8 +3,7 @@ import { DishBagData } from '../../Interfaces/LayoutInterfaces'
 import { Dishv3, Dishv3Added, Dishv3Img, Dishv3ImgBox, Dishv3Info, Dishv3Name, Dishv3Price, Pricev3 } from './stylesv3'
 
 export default function DishCardv3(props:DishBagData) {
-  console.log(props);
-  
+
   return (
     <Dishv3>
       <Dishv3ImgBox><Dishv3Img src={props.url}/></Dishv3ImgBox>
