@@ -1,3 +1,5 @@
+import { Slider } from "@mui/material";
+import { styled as muiStyled } from "@mui/system";
 import styled from "styled-components";
 export const WrapperDistanceSection=styled.div`
 position: absolute;
@@ -9,6 +11,15 @@ flex-direction:column;
 align-items:center;
 background: #FFFFFF;
 box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+`
+export const DistanceSlider=muiStyled(Slider)<{ changed:boolean}>`
+width: 90%;
+    margin:0 5%;
+    height:1px;
+    color:#979797;
+.MuiSlider-thumb{
+        color:${(props) => props.changed ? "#DE9200" : "black"};
+    }
 `
 export const TopSection=styled.div`
 font-family: 'Helvetica Neue';
@@ -71,7 +82,6 @@ align-items: center;
 letter-spacing: 1.97px;
 color: #000000;
 height: 11px;
-width:31.3%;
 `
 export const DistanceText=styled.div`
 width: 13.5%;

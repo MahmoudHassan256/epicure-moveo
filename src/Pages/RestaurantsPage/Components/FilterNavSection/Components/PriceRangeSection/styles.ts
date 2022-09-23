@@ -16,11 +16,14 @@ export const RangeSlider = muiStyled(Slider) <{ changed:{left:boolean,right:bool
     margin:0 5%;
     height:1px;
     color:#979797;
-.MuiSlider-thumb{
-        color:${(props) => props.changed.left? "#DE9200" : "black"};
+& .MuiSlider-thumb{
+    color:black;
+}
+& .first-thumb{
+        color:${(props) => props.changed.left ? "#DE9200" : "black"};
     }
-    .MuiSlider-thumb{
-        color:${(props) => props.changed.right? "#DE9200" : "black"};
+& .second-thumb{
+        color:${(props) => props.changed.right ? "#DE9200" : "black"};
     }
 
 

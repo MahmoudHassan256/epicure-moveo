@@ -1,37 +1,25 @@
 import React, { useState } from 'react'
-import StartContainer from './Components/StartContainer'
-import { BottomSection, ClearBtn, FormElement, TopSection, WrapperRatingSection } from './styles'
+import CheckBoxElement from './Components/CheckBoxElement';
+import { BottomSection, ClearBtn, TopSection, WrapperRatingSection } from './styles'
 
 
 export default function RatingSection() {
-  const [Rating, setRating] = useState([false, false, false, false, false])
+  const [Rating, setRating] = useState<number[]>([])
   const [ClearBtnState, updateClearBtn] = useState(false)
-
-  function fillform(starnumber: number) {
-    return (
-      <FormElement>
-        <input type={"checkbox"} 
-          onChange={(e) => {
-            Rating[starnumber - 1] = e.target.checked
-            updateClearBtn(true);
-          }}
-        />
-        <StartContainer starNumber={starnumber} />
-      </FormElement>
-    )
-  }
   return (
     <WrapperRatingSection>
       <TopSection>Rating</TopSection>
       <BottomSection>
-        {fillform(1)}
-        {fillform(2)}
-        {fillform(3)}
-        {fillform(4)}
-        {fillform(5)}
+          <CheckBoxElement Rating={Rating} starnumber={1} updateClearBtn={updateClearBtn} setRating={setRating}/>
+          <CheckBoxElement Rating={Rating} starnumber={2} updateClearBtn={updateClearBtn} setRating={setRating}/>
+          <CheckBoxElement Rating={Rating} starnumber={3} updateClearBtn={updateClearBtn} setRating={setRating}/>
+          <CheckBoxElement Rating={Rating} starnumber={4} updateClearBtn={updateClearBtn} setRating={setRating}/>
+          <CheckBoxElement Rating={Rating} starnumber={5} updateClearBtn={updateClearBtn} setRating={setRating}/>
         {ClearBtnState && <ClearBtn type='reset' onClick={() => {
-          updateClearBtn(false);
-          setRating([false, false, false, false, false]);
+          setRating([]);
+          updateClearBtn(false)
+          console.log(Rating);
+
         }}>Clear</ClearBtn>}
       </BottomSection>
     </WrapperRatingSection>
