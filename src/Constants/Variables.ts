@@ -20,3 +20,4 @@ export const changes=[
   {value:"Whithout peanuts"},
   {value:"Sticky Less spicy"},
 ]
+export const defaultUrl = "https://moveo-server-mahmoud.herokuapp.com/";

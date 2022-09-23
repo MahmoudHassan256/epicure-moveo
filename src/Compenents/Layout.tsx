@@ -15,13 +15,14 @@ import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import HeaderDesktop from './Header/HeaderDesktop'
 import DishProfileMobile from './DishProfile/DishProfileMobile'
+import { defaultUrl } from '../Constants/Variables'
 export default function Layout() {
   const windowSize = SetWindowSize();
   const dispatch=useDispatch();
 
-  const Restaurantsurl = 'http://localhost:3001/api/restaurants/getRestaurants';
-  const Dishesurl = 'http://localhost:3001/api/dishes/getDishes';
-  const Chefsurl = 'http://localhost:3001/api/chefs/getChefs';
+  const Restaurantsurl = defaultUrl+'api/restaurants/getRestaurants';
+  const Dishesurl = defaultUrl+'api/dishes/getDishes';
+  const Chefsurl = defaultUrl+'api/chefs/getChefs';
 
   useEffect(()=>{
   async function FetchData(){

@@ -9,6 +9,7 @@ import { setOpenSignUp } from '../../Slicers/SingUpStateSlice';
 import { setOpenSignIn } from '../../Slicers/SingInStateSlice';
 import { getCookie, removeCookie, setCookie } from 'typescript-cookie'
 import IsDesktop from '../../Helper/WindowCheker';
+import { defaultUrl } from '../../Constants/Variables';
 
 
 export default function HeaderSignIn() {
@@ -87,7 +88,7 @@ export default function HeaderSignIn() {
                                 }
                                 else {
                                     const user = { email: email, password: password };
-                                    const urlSign = "http://localhost:3001/api/users/getUser";
+                                    const urlSign = defaultUrl+"api/users/getUser";
                                     const response = await fetch(urlSign, {
                                         method: "post",
                                         headers: {

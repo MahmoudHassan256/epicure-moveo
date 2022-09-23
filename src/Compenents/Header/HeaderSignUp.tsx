@@ -10,6 +10,7 @@ import { setOpenSignIn } from '../../Slicers/SingInStateSlice';
 import PasswordChecklist from "react-password-checklist"
 import { setCookie } from 'typescript-cookie'
 import IsDesktop from '../../Helper/WindowCheker';
+import { defaultUrl } from '../../Constants/Variables';
 
 
 
@@ -214,7 +215,7 @@ export default function HeaderSignUp() {
                 else {
                   const user = { firstname: firstname, lastname: lastname, phonenumber: phoneNumber, email: email, password: password };
 
-                  const urlUser = "http://localhost:3001/api/users/createUser";
+                  const urlUser = defaultUrl+"api/users/createUser";
                   const response = await fetch(urlUser, {
                     method: "post",
                     headers: {
